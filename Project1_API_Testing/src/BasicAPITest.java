@@ -33,7 +33,7 @@ public class BasicAPITest {
 				+ "  \"language\": \"French-IN\"\r\n"
 				+ "}")
 		.when().post("maps/api/place/add/json")
-		.then().log().all().assertThat().statusCode(200).body("scope", equalTo("App"));
+		.then().log().all().assertThat().statusCode(200).body("scope", equalTo("APP")).header("server", "Apache/2.4.52 (Ubuntu)");
 		
 	}
 
