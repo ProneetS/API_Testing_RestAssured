@@ -1,6 +1,8 @@
 import io.restassured.RestAssured;
 
-import static io.restassured.RestAssured.*;
+import static io.restassured.RestAssured.*; //for given()
+
+import static org.hamcrest.Matchers.*; //for equalTo()
 
 public class BasicAPITest {
 
@@ -11,7 +13,7 @@ public class BasicAPITest {
 		
 		//Validating the AddPlace API is working fine or not
 		
-		//step-1: Setting up base URL
+		//step-1: Setting up base URL 
 		RestAssured.baseURI = "https://rahulshettyacademy.com";
 		given().log().all().queryParam("key","qaclick123").header("Content-Type", "application/json")
 		.body("{\r\n"
@@ -31,7 +33,8 @@ public class BasicAPITest {
 				+ "  \"language\": \"French-IN\"\r\n"
 				+ "}")
 		.when().post("maps/api/place/add/json")
-		.then().log().all().assertThat().statusCode(200);
+		.then().log().all().assertThat().statusCode(200).body("scope", equalTo("App"));
+		
 	}
 
 }
@@ -41,5 +44,6 @@ public class BasicAPITest {
 given, when and then 
 given – method will take all input details to submit for an API
 when – method submit the API
-then – method used to validate the response*/
+then – method used to validate the response
+queryParam() method taken input parameter from the param tab of postman*/
 
