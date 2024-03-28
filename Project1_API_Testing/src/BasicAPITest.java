@@ -47,3 +47,6 @@ when – method submit the API
 then – method used to validate the response
 queryParam() method taken input parameter from the param tab of postman*/
 
+//Notes-2
+/*given () method header () is for input whereas then () method header () is for response*/
+
