@@ -17,6 +17,8 @@ public class BasicAPITest {
 		
 		//step-1: Setting up base URL 
 		RestAssured.baseURI = "https://rahulshettyacademy.com";
+		
+		//Working on AddPlace API
 		String response = given().log().all().queryParam("key","qaclick123").header("Content-Type", "application/json")
 		.body(Payload.AddPlace())
 		.when().post("maps/api/place/add/json")
@@ -26,6 +28,16 @@ public class BasicAPITest {
 		JsonPath js = new JsonPath(response);
 		String placeID = js.getString("place_id"); // storing the place_id in placeID variable
 		System.out.println(placeID); // printing the placeID value 
+
+		//Working on UpdatePlace API
+		given().log().all().queryParam("key", "qaclick123").header("Content-Type", "application/json")
+		.body("{\r\n"
+				+	"\"place_id\":\"49d9804508ac68924f5d2416be0ddd31\",\r\n"
+				+	"\"address\":\"70 Summer walk, USA\", \r\n"
+				+	"\"key\":\"qaclick123\"\r\n"
+				+	"}")
+		.when().put("map/api/place/update/json")
+		.then().assertThat().statusCode(200).body("msg", equalTo("Address successfully updated"));
 
 		
 	}
