@@ -30,10 +30,15 @@ public class BasicAPITest {
 		System.out.println(placeID); // printing the placeID value 
 
 		//Working on UpdatePlace API
+		String newAddress = "Summer walk, London";
+		
+		/*we have already created placeID variable and place the value there and 
+		  we need to add that to the body() JSON. So we can do that by adding variable in the string. 
+		  And to do that we need to write like this “+placeId+”\*/
 		given().log().all().queryParam("key", "qaclick123").header("Content-Type", "application/json")
 		.body("{\r\n"
-				+	"\"place_id\":\"49d9804508ac68924f5d2416be0ddd31\",\r\n"
-				+	"\"address\":\"70 Summer walk, USA\", \r\n"
+				+	"\"place_id\""+placeID+"\",\r\n"
+				+	"\"address\":\""+newAddress+"\", \r\n"
 				+	"\"key\":\"qaclick123\"\r\n"
 				+	"}")
 		.when().put("map/api/place/update/json")
