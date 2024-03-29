@@ -37,12 +37,12 @@ public class BasicAPITest {
 		  And to do that we need to write like this “+placeId+”\*/
 		given().log().all().queryParam("key", "qaclick123").header("Content-Type", "application/json")
 		.body("{\r\n"
-				+	"\"place_id\""+placeID+"\",\r\n"
+				+	"\"place_id\":\""+placeID+"\",\r\n"
 				+	"\"address\":\""+newAddress+"\", \r\n"
 				+	"\"key\":\"qaclick123\"\r\n"
 				+	"}")
-		.when().put("map/api/place/update/json")
-		.then().assertThat().statusCode(200).body("msg", equalTo("Address successfully updated"));
+		.when().put("maps/api/place/update/json")
+		.then().assertThat().log().all().statusCode(200).body("msg", equalTo("Address successfully updated"));
 
 		
 	}
