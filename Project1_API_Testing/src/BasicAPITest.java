@@ -58,7 +58,10 @@ public class BasicAPITest {
 		System.out.println(actualAddress);
 		
 		//compare actualAddress of Get Place with newAddress of Update place with the help of TestNG Assertions
-		Assert.assertEquals(actualAddress, newAddress);
+		//Assert.assertEquals(actualAddress, newAddress);
+		
+		//But if we change the value here the assertion will fail.
+		Assert.assertEquals(actualAddress, "Random");
 		
 	}
 
