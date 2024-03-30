@@ -55,6 +55,10 @@ public class BasicAPITest {
 		String actualAddress = js1.getString("address");
 		System.out.println(actualAddress);
 		
+		//compare actualAddress of Get Place with newAddress of Update place
+		
+		
+		
 	}
 
 }
