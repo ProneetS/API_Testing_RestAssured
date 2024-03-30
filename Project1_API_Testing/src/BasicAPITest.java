@@ -46,6 +46,14 @@ public class BasicAPITest {
 
 		//Verifying the data correctly updated or not by using GetPlace API
 		//Working with GetPlace API
+		String getPlaceResponse = given().log().all().queryParam("key", "qaclick123")
+				.queryParam("place_id", placeID)
+				.when().get("maps/api/place/get/json")
+				.then().assertThat().log().all().statusCode(200).extract().asString();
+		
+		JsonPath js1 = new JsonPath(getPlaceResponse);
+		String actualAddress = js1.getString("address");
+		System.out.println(actualAddress);
 		
 	}
 
