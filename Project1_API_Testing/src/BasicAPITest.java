@@ -6,6 +6,8 @@ import static io.restassured.RestAssured.*; //for given()
 
 import static org.hamcrest.Matchers.*; //for equalTo()
 
+import org.testng.Assert;
+
 public class BasicAPITest {
 
 	public static void main(String[] args) {
@@ -55,9 +57,8 @@ public class BasicAPITest {
 		String actualAddress = js1.getString("address");
 		System.out.println(actualAddress);
 		
-		//compare actualAddress of Get Place with newAddress of Update place
-		
-		
+		//compare actualAddress of Get Place with newAddress of Update place with the help of TestNG Assertions
+		Assert.assertEquals(actualAddress, newAddress);
 		
 	}
 
