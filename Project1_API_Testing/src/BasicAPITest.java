@@ -44,6 +44,8 @@ public class BasicAPITest {
 		.when().put("maps/api/place/update/json")
 		.then().assertThat().log().all().statusCode(200).body("msg", equalTo("Address successfully updated"));
 
+		//Verifying the data correctly updated or not by using GetPlace API
+		//Working with GetPlace API
 		
 	}
 
@@ -63,3 +65,6 @@ queryParam() method taken input parameter from the param tab of postman*/
 //Notes-3
 /*using .extract().response() to extract the response to String And asString() method is used to format in string. */
 
+//Note-4
+/*we need not to give any header because when we use GET http method, we are not sending any body to GetPlace API. Everything should be part of URL only.
+But we need to give one query parameter which is place ID. */
