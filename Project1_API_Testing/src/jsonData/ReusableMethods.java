@@ -9,3 +9,9 @@ public class ReusableMethods {
 		
 	}
 }
+
+
+//Note-1
+/*We make this class static so that we can directly use this in class.
+The return type is JsonPath.
+We pass a String argument as it will take String as an argument because JsonPath will convert String to Json.*/

@@ -1,6 +1,7 @@
 import io.restassured.RestAssured;
 import io.restassured.path.json.JsonPath;
 import jsonData.Payload;
+import jsonData.ReusableMethods;
 
 import static io.restassured.RestAssured.*; //for given()
 
@@ -27,7 +28,7 @@ public class BasicAPITest {
 		.then().log().all().assertThat().statusCode(200).body("scope", equalTo("APP")).header("server", "Apache/2.4.52 (Ubuntu)").extract().response().asString();
 		
 		System.out.println(response);
-		JsonPath js = new JsonPath(response);
+		JsonPath js = ReusableMethods.rawToJson(response);
 		String placeID = js.getString("place_id"); // storing the place_id in placeID variable
 		System.out.println(placeID); // printing the placeID value 
 
@@ -53,7 +54,7 @@ public class BasicAPITest {
 				.when().get("maps/api/place/get/json")
 				.then().assertThat().log().all().statusCode(200).extract().asString();
 		
-		JsonPath js1 = new JsonPath(getPlaceResponse);
+		JsonPath js1 = ReusableMethods.rawToJson(getPlaceResponse);
 		String actualAddress = js1.getString("address");
 		System.out.println(actualAddress);
 		
@@ -84,3 +85,6 @@ queryParam() method taken input parameter from the param tab of postman*/
 //Note-4
 /*we need not to give any header because when we use GET http method, we are not sending any body to GetPlace API. Everything should be part of URL only.
 But we need to give one query parameter which is place ID. */
+
+//NOTE-5
+/*We are calling the class ReUsableMethods which have rawToJson() method, which will return an Object in JsonPath format so we are storing that returned value in JsonPath js1. */
