@@ -24,7 +24,9 @@ public class ComplexJson {
 		System.out.println(title1);
 
 
-
 	}
 
 }
+
+/*Note-1
+In this program, learning about nested JSON and How to access all those Child JSON value.*/
