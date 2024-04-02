@@ -13,6 +13,12 @@ public class ComplexJson {
 		//Ans1 - js2.getInt("courses.size()"); method used
 		int count = js2.getInt("courses.size()");
 		System.out.println(count);
+		
+		//Q2 - 2.	Print purchase amount
+		//As its present in a nested fashion 
+		int purchaseAmt = js2.getInt("dashboard.purchaseAmount");
+		System.out.println(purchaseAmt);
+
 
 	}
 
