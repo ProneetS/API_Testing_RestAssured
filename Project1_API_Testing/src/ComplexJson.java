@@ -18,6 +18,11 @@ public class ComplexJson {
 		//As its present in a nested fashion 
 		int purchaseAmt = js2.getInt("dashboard.purchaseAmount");
 		System.out.println(purchaseAmt);
+		
+		//Q3 - 3.	Print title of the 1st course
+		String title1 = js2.getString("courses[0].title");
+		System.out.println(title1);
+
 
 
 	}
