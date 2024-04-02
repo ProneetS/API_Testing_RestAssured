@@ -1,4 +1,4 @@
-package jsonData;
+package jsonData_Payload;
 
 public class Payload {
 	public static String AddPlace() {

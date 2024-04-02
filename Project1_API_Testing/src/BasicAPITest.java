@@ -1,7 +1,7 @@
 import io.restassured.RestAssured;
 import io.restassured.path.json.JsonPath;
-import jsonData.Payload;
-import jsonData.ReusableMethods;
+import jsonData_Payload.Payload;
+import jsonData_Payload.ReusableMethods;
 
 import static io.restassured.RestAssured.*; //for given()
 

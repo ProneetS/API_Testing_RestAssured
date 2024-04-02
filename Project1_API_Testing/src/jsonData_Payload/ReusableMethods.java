@@ -1,4 +1,4 @@
-package jsonData;
+package jsonData_Payload;
 
 import io.restassured.path.json.JsonPath;
 
